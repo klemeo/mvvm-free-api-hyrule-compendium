@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
 import ru.android.hyrulecompendiummvvm.presentation.MainActivityContract
+import ru.android.hyrulecompendiummvvm.presentation.home.HomeFragmentDirections
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
 
@@ -16,7 +17,9 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
     }
 
     override fun openCategoryScreen(category: String) {
-        TODO("Not yet implemented")
+        navController.navigate(
+            HomeFragmentDirections.actionHomeFragmentToHyruleFragment(category = category)
+        )
     }
 
 }

@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="ru.android.hyrulecompendiummvvm.presentation.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_hyruleFragment"
+            app:destination="@id/hyruleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hyruleFragment"
+        android:name="ru.android.hyrulecompendiummvvm.presentation.category.CategoryFragment"
+        android:label="HyruleFragment"
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
 </navigation>
