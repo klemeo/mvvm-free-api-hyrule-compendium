@@ -1,4 +1,7 @@
 package ru.android.hyrulecompendiummvvm.presentation
 
-interface MainActivityContract {
+interface MainActivityContract : CategoryScreen
+
+interface CategoryScreen {
+    fun openCategoryScreen(category: String)
 }
