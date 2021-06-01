@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.item_image.view.*
 import ru.android.hyrulecompendiummvvm.R
 import ru.android.hyrulecompendiummvvm.presentation.model.HyruleData
 
-class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     private val mList: MutableList<HyruleData> = mutableListOf()
     private var mListener: Listener? = null
@@ -25,7 +25,13 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
     }
 
     interface Listener {
-        fun onPostClicked()
+        fun onPostClicked(
+            name: String? = null,
+            category: String? = null,
+            description: String? = null,
+            attack: Int? = null,
+            defense: Int? = null
+        )
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -47,7 +53,13 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
                 .into(itemView.imagePreview)
 
             itemView.cvPostItem.setOnClickListener {
-
+                mListener?.onPostClicked(
+                    name = result.name,
+                    category = result.category,
+                    description = result.description,
+                    attack = result.attack,
+                    defense = result.defense
+                )
             }
         }
     }

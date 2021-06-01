@@ -18,7 +18,7 @@ import ru.android.hyrulecompendiummvvm.databinding.FragmentCategoryBinding
 import ru.android.hyrulecompendiummvvm.presentation.state.CategoryVS
 
 
-class CategoryFragment : Fragment() {
+class CategoryFragment : Fragment(), CategoryAdapter.Listener {
 
     private val viewModel: CategoryViewModel by viewModel()
 
@@ -47,6 +47,7 @@ class CategoryFragment : Fragment() {
     }
 
     private fun initView() {
+        hyruleAdapter.setListener(this)
         viewModel.getCategory(navArgs.category)
         with(recyclerView) {
             layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
@@ -84,6 +85,22 @@ class CategoryFragment : Fragment() {
                 }
             }
         })
+    }
+
+    override fun onPostClicked(
+        name: String?,
+        category: String?,
+        description: String?,
+        attack: Int?,
+        defense: Int?
+    ) {
+        InfoBottomSheet.newInstance(
+            name = name,
+            category = category,
+            description = description,
+            attack = attack,
+            defense = defense
+        ).show(childFragmentManager, InfoBottomSheet.TAG)
     }
 
 }
