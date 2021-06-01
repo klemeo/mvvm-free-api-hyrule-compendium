@@ -1,0 +1,2 @@
+rootProject.name = "Hyrule Compendium MVVM"
+include ':app'
