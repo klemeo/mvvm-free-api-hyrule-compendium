@@ -1,5 +1,5 @@
 package ru.android.hyrulecompendiummvvm.data.model.hyrule_body
 
-class HyruleInfoBody(
+data class HyruleInfoBody(
     val data: List<HyruleDataBody>?
 )

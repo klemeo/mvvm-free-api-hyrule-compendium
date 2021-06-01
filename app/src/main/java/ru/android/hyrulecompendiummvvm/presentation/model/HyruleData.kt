@@ -1,6 +1,6 @@
-package ru.android.hyrulecompendiummvvm.data.model.hyrule_body
+package ru.android.hyrulecompendiummvvm.presentation.model
 
-data class HyruleDataBody(
+data class HyruleData(
     val id: Int?,
     val category: String?,
     val name: String?,

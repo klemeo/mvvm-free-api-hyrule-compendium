@@ -2,7 +2,7 @@ package ru.android.hyrulecompendiummvvm.data.model.hyrule_responses
 
 import com.google.gson.annotations.SerializedName
 
-class HyruleDataResponses(
+data class HyruleDataResponses(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("category")
