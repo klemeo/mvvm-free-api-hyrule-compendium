@@ -16,6 +16,7 @@ import ru.android.hyrulecompendiummvvm.R
 import ru.android.hyrulecompendiummvvm.base.ItemDecoration
 import ru.android.hyrulecompendiummvvm.databinding.FragmentCategoryBinding
 import ru.android.hyrulecompendiummvvm.presentation.state.CategoryVS
+import ru.android.hyrulecompendiummvvm.presentation.utils.*
 
 
 class CategoryFragment : Fragment(), CategoryAdapter.Listener {
@@ -72,11 +73,11 @@ class CategoryFragment : Fragment(), CategoryAdapter.Listener {
                 }
                 is CategoryVS.ShowLoader -> {
                     if (it.showLoader) {
-                        pbPost.visibility = View.VISIBLE
-                        recyclerView.visibility = View.INVISIBLE
+                        pbPost.visible()
+                        recyclerView.invisible()
                     } else {
-                        pbPost.visibility = View.INVISIBLE
-                        recyclerView.visibility = View.VISIBLE
+                        pbPost.invisible()
+                        recyclerView.visible()
                     }
                     Log.i("ShowLoader", it.showLoader.toString())
                 }
