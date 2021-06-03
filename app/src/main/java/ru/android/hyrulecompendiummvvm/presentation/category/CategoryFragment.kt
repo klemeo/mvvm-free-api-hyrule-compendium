@@ -82,7 +82,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.Listener {
                     Log.i("ShowLoader", it.showLoader.toString())
                 }
                 is CategoryVS.Error -> {
-                    it.message?.let { message -> Log.i("Error", message) }
+                    showInfoDialog()
                 }
             }
         })
@@ -102,6 +102,12 @@ class CategoryFragment : Fragment(), CategoryAdapter.Listener {
             attack = attack,
             defense = defense
         ).show(childFragmentManager, InfoBottomSheet.TAG)
+    }
+
+    private fun showInfoDialog() {
+        val dialog = DialogInfo()
+        val manager = childFragmentManager
+        dialog.show(manager, "dialogInfo")
     }
 
 }
